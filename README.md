@@ -106,6 +106,6 @@ model.load_state_dict(state_dict)
 ## Future Development
 Tensorflow implementation.
 
-##Acknowledgement
+## Acknowledgement
 This work has emanated from research conducted with the financial support of Science Foundation Ireland (SFI) 
 under grant number SFI/15/SIRG/3283 and SFI/12/RC/2289 P2.
