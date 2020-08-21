@@ -108,7 +108,7 @@ if __name__ == '__main__':
     salicon_path = '/data/Datasets/SALICON/'
     mit1003_path = '/data/saliency_datasets/MIT1003_bak/'
 
-    parser = argparse.ArgumentParser(description='configs for pretrain.')
+    parser = argparse.ArgumentParser(description='configs for evaluation.')
     parser.add_argument('-model_type', action='store', dest='model_type',
                         help='model type can be either C(oncatenation) or A(ddition)', default='A')
     parser.add_argument('-batch_size', action='store', dest='batch_size',

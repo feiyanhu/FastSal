@@ -137,7 +137,7 @@ if __name__ == '__main__':
     coco_pseudo_path = '/home/feiyan/data/generated_sal/deep_gaze_II_coco_with_cb_npy/'
     salicon_path = '/data/Datasets/SALICON/'
 
-    parser = argparse.ArgumentParser(description='configs for pretrain.')
+    parser = argparse.ArgumentParser(description='configs for fine_tune.')
     parser.add_argument('-model_type', action='store', dest='model_type',
                         help='model type can be either C(oncatenation) or A(ddition)', default='A')
     parser.add_argument('-batch_size', action='store', dest='batch_size',
