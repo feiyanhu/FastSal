@@ -80,7 +80,7 @@ if __name__ == '__main__':
     parser.add_argument('-output_path', action='store', dest='output_path',
                         help='path to output image or image folder')
     parser.add_argument('-batch_size', action='store', dest='batch_size',
-                        help='batch size.', default=2, type=int)
+                        help='batch size.', default=1, type=int)
     parser.add_argument('-probability_output', action='store', dest='probability_output',
                         help='use probability_output or not', default=False, type=bool)
     parser.add_argument('-gpu', action='store', dest='gpu',

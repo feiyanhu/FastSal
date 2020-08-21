@@ -104,6 +104,33 @@ model = fastsal.fastsal(pretrain_mode=False, model_type='A')
 state_dict, opt_state = load_weight(MODEL_PATH, remove_decoder=False)
 model.load_state_dict(state_dict)
 ```
+
+#### To predict using a image or a folder with images
+In this example, the input and output folder are both `image_example`. Currently the script only takes images files 
+with '.jpg', '.png' and '.jpeg' ending.
+```bash
+python fastSal_predict.py \
+-input_path image_examples/
+-output_path image_examples/
+```
+
+The default settings for prediction `-model_type` is `A`, `finetune_dataset` is `salicon`, `-batch_size` is 1,
+`prebability_output` is False and `gpu` is True.
+Supports A or C for `-model_type`.
+Supports `salicon` or `coco` for `-fintune_dataset`.
+If `-probability_output` is True, the output files are saved in numpy data format.
+
+The other arguments are:
+```bash
+python fastSal_predict.py \
+-model_type A \
+-finetune_dataset coco \
+-input_path image_examples/ \
+-output_path image_examples/ \
+-batch_size 30 \
+-probability_output True \
+-gpu False
+```
 ## Future Development
 TensorFlow implementation.
 
