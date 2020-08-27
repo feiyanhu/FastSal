@@ -120,7 +120,7 @@ model.load_state_dict(state_dict)
 
 #### To predict using a image or a folder with images
 In this example, the input and output folder are both `image_example`. Currently the script only takes images files 
-with '.jpg', '.png' and '.jpeg' ending.
+with '.jpg', '.png' and '.jpeg' extensions.
 ```bash
 python fastSal_predict.py \
 -input_path image_examples/
