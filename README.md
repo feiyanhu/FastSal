@@ -4,6 +4,19 @@ FastSal is a fast saliency map predictor base on MobielNet V2 backbone. FastSal 
 on CPU (>30FPS). There are 2 versions of FastSal, A(ddition) and C(oncatenetion), which can be chosen by specifying 
 `-model_type`. Two sets of pretrained weights from the SALICON 2017 and COCO 2019 detection tasks are provided. 
 
+## Publication
+
+Find our pre-print on arXiv: [FastSal: a Computationally Efficient Network for Visual Saliency Prediction](https://arxiv.org/abs/2008.11151).
+
+````
+@article{hu2020fastsal,
+  title={FastSal: a Computationally Efficient Network for Visual Saliency Prediction},
+  author={Feiyan Hu and Kevin McGuinness},
+  journal={arXiv preprint arXiv:2008.11151},
+  year={2020}
+}
+````
+
 ## Install Dependencies
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install python library dependencies.
