@@ -21,7 +21,7 @@ for i in range(1000):
         net.setInput(blob)
         start = time.time()
         net.forward()
-        interval=(start-time.time())
+        interval=(time.time()-start)
         speeds.append((time.time() - start) * 1000)
         print('%.2fms|%.2fms|%.2fms|%.2f' % (np.min(speeds), np.median(speeds), np.mean(speeds), np.std(speeds)))
         fps=1/interval
