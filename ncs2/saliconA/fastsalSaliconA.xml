@@ -1,0 +1,7125 @@
+<?xml version="1.0" ?>
+<net name="fastsal" version="10">
+	<layers>
+		<layer id="0" name="input" type="Parameter" version="opset1">
+			<data shape="1,3,192,256" element_type="f32"/>
+			<output>
+				<port id="0" precision="FP32">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>192</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="1" name="onnx_initializer_node_696/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="0" size="3456" shape="32,3,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>32</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="2" name="Conv_0/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="2,2" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>192</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="3" name="Conv_0/Dims4473/copy_const" type="Const" version="opset1">
+			<data offset="3456" size="128" shape="1,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="4" name="Conv_0" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="5" name="Clip_3" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="6" name="1520515208_const" type="Const" version="opset1">
+			<data offset="3584" size="1152" shape="32,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="7" name="Conv_4/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="8" name="Conv_4/Dims4215/copy_const" type="Const" version="opset1">
+			<data offset="4736" size="128" shape="1,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="9" name="Conv_4" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="10" name="Clip_7" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="11" name="onnx_initializer_node_702/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="4864" size="2048" shape="16,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>16</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="12" name="Conv_8/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>16</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="13" name="Conv_8/Dims4293/copy_const" type="Const" version="opset1">
+			<data offset="6912" size="64" shape="1,16,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="14" name="Conv_8" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="15" name="onnx_initializer_node_705/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="6976" size="6144" shape="96,16,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>96</dim>
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="16" name="Conv_9/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>96</dim>
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="17" name="Conv_9/Dims4203/copy_const" type="Const" version="opset1">
+			<data offset="13120" size="384" shape="1,96,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="18" name="Conv_9" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="19" name="Clip_12" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="20" name="1519715200_const" type="Const" version="opset1">
+			<data offset="13504" size="3456" shape="96,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="21" name="Conv_13/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="2,2" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="22" name="Conv_13/Dims4179/copy_const" type="Const" version="opset1">
+			<data offset="16960" size="384" shape="1,96,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="23" name="Conv_13" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="24" name="Clip_16" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="25" name="onnx_initializer_node_711/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="17344" size="9216" shape="24,96,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>24</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="26" name="Conv_17/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>24</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="27" name="Conv_17/Dims4497/copy_const" type="Const" version="opset1">
+			<data offset="26560" size="96" shape="1,24,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="28" name="Conv_17" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="29" name="onnx_initializer_node_714/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="26656" size="13824" shape="144,24,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>144</dim>
+					<dim>24</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="30" name="Conv_18/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>144</dim>
+					<dim>24</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="31" name="Conv_18/Dims4239/copy_const" type="Const" version="opset1">
+			<data offset="40480" size="576" shape="1,144,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="32" name="Conv_18" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="33" name="Clip_21" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="34" name="1526515268_const" type="Const" version="opset1">
+			<data offset="41056" size="5184" shape="144,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="35" name="Conv_22/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="36" name="Conv_22/Dims4509/copy_const" type="Const" version="opset1">
+			<data offset="46240" size="576" shape="1,144,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="37" name="Conv_22" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="38" name="Clip_25" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="39" name="onnx_initializer_node_720/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="46816" size="13824" shape="24,144,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>24</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="40" name="Conv_26/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>24</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="41" name="Conv_26/Dims4347/copy_const" type="Const" version="opset1">
+			<data offset="60640" size="96" shape="1,24,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="42" name="Conv_26" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="43" name="Add_27" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="44" name="Concat_167" type="Concat" version="opset1">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="45" name="DepthToSpace_168" type="DepthToSpace" version="opset1">
+			<data mode="blocks_first" block_size="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>12</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="46" name="Concat_169" type="Concat" version="opset1">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>12</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>28</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="47" name="onnx_initializer_node_adaptation_layer.layers.0.0.weight/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="60736" size="896" shape="8,28,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>8</dim>
+					<dim>28</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="48" name="Conv_176/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>28</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>8</dim>
+					<dim>28</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="49" name="Conv_176/Dims4503/copy_const" type="Const" version="opset1">
+			<data offset="61632" size="32" shape="1,8,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="50" name="Conv_176" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="51" name="Relu_177" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="52" name="onnx_initializer_node_723/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="61664" size="13824" shape="144,24,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>144</dim>
+					<dim>24</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="53" name="Conv_28/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>144</dim>
+					<dim>24</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="54" name="Conv_28/Dims4173/copy_const" type="Const" version="opset1">
+			<data offset="75488" size="576" shape="1,144,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="55" name="Conv_28" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="56" name="Clip_31" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="57" name="1525315256_const" type="Const" version="opset1">
+			<data offset="76064" size="5184" shape="144,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="58" name="Conv_32/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="2,2" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="59" name="Conv_32/Dims4425/copy_const" type="Const" version="opset1">
+			<data offset="81248" size="576" shape="1,144,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="60" name="Conv_32" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="61" name="Clip_35" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="62" name="onnx_initializer_node_729/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="81824" size="18432" shape="32,144,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>32</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="63" name="Conv_36/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>144</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="64" name="Conv_36/Dims4371/copy_const" type="Const" version="opset1">
+			<data offset="100256" size="128" shape="1,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="65" name="Conv_36" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="66" name="onnx_initializer_node_732/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="100384" size="24576" shape="192,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>192</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="67" name="Conv_37/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>192</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="68" name="Conv_37/Dims4161/copy_const" type="Const" version="opset1">
+			<data offset="124960" size="768" shape="1,192,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="69" name="Conv_37" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="70" name="Clip_40" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="71" name="1523715240_const" type="Const" version="opset1">
+			<data offset="125728" size="6912" shape="192,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="72" name="Conv_41/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="73" name="Conv_41/Dims4359/copy_const" type="Const" version="opset1">
+			<data offset="132640" size="768" shape="1,192,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="74" name="Conv_41" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="75" name="Clip_44" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="76" name="onnx_initializer_node_738/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="133408" size="24576" shape="32,192,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>32</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="77" name="Conv_45/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="78" name="Conv_45/Dims4521/copy_const" type="Const" version="opset1">
+			<data offset="157984" size="128" shape="1,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="79" name="Conv_45" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="80" name="Add_46" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="81" name="onnx_initializer_node_741/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="158112" size="24576" shape="192,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>192</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="82" name="Conv_47/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>192</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="83" name="Conv_47/Dims4335/copy_const" type="Const" version="opset1">
+			<data offset="182688" size="768" shape="1,192,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="84" name="Conv_47" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="85" name="Clip_50" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="86" name="1519315196_const" type="Const" version="opset1">
+			<data offset="183456" size="6912" shape="192,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="87" name="Conv_51/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="88" name="Conv_51/Dims4155/copy_const" type="Const" version="opset1">
+			<data offset="190368" size="768" shape="1,192,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="89" name="Conv_51" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="90" name="Clip_54" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="91" name="onnx_initializer_node_747/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="191136" size="24576" shape="32,192,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>32</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="92" name="Conv_55/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="93" name="Conv_55/Dims4353/copy_const" type="Const" version="opset1">
+			<data offset="215712" size="128" shape="1,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="94" name="Conv_55" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="95" name="Add_56" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="96" name="Concat_170" type="Concat" version="opset1">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="97" name="DepthToSpace_171" type="DepthToSpace" version="opset1">
+			<data mode="blocks_first" block_size="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="98" name="onnx_initializer_node_adaptation_layer.layers.1.0.weight/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="215840" size="3072" shape="32,24,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="99" name="Conv_178/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="100" name="Conv_178/Dims4233/copy_const" type="Const" version="opset1">
+			<data offset="218912" size="128" shape="1,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="101" name="Conv_178" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="102" name="Relu_179" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="103" name="onnx_initializer_node_750/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="219040" size="24576" shape="192,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>192</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="104" name="Conv_57/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>192</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="105" name="Conv_57/Dims4209/copy_const" type="Const" version="opset1">
+			<data offset="243616" size="768" shape="1,192,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="106" name="Conv_57" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="107" name="Clip_60" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="108" name="1525715260_const" type="Const" version="opset1">
+			<data offset="244384" size="6912" shape="192,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="109" name="Conv_61/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="2,2" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="110" name="Conv_61/Dims4437/copy_const" type="Const" version="opset1">
+			<data offset="251296" size="768" shape="1,192,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="111" name="Conv_61" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="112" name="Clip_64" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="113" name="onnx_initializer_node_756/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="252064" size="49152" shape="64,192,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>64</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="114" name="Conv_65/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>64</dim>
+					<dim>192</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="115" name="Conv_65/Dims4527/copy_const" type="Const" version="opset1">
+			<data offset="301216" size="256" shape="1,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="116" name="Conv_65" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="117" name="onnx_initializer_node_759/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="301472" size="98304" shape="384,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>384</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="118" name="Conv_66/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>384</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="119" name="Conv_66/Dims4149/copy_const" type="Const" version="opset1">
+			<data offset="399776" size="1536" shape="1,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="120" name="Conv_66" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="121" name="Clip_69" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="122" name="1521315216_const" type="Const" version="opset1">
+			<data offset="401312" size="13824" shape="384,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="123" name="Conv_70/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="124" name="Conv_70/Dims4251/copy_const" type="Const" version="opset1">
+			<data offset="415136" size="1536" shape="1,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="125" name="Conv_70" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="126" name="Clip_73" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="127" name="onnx_initializer_node_765/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="416672" size="98304" shape="64,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>64</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="128" name="Conv_74/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>64</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="129" name="Conv_74/Dims4131/copy_const" type="Const" version="opset1">
+			<data offset="514976" size="256" shape="1,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="130" name="Conv_74" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="131" name="Add_75" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="132" name="onnx_initializer_node_768/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="515232" size="98304" shape="384,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>384</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="133" name="Conv_76/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>384</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="134" name="Conv_76/Dims4275/copy_const" type="Const" version="opset1">
+			<data offset="613536" size="1536" shape="1,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="135" name="Conv_76" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="136" name="Clip_79" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="137" name="1526115264_const" type="Const" version="opset1">
+			<data offset="615072" size="13824" shape="384,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="138" name="Conv_80/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="139" name="Conv_80/Dims4443/copy_const" type="Const" version="opset1">
+			<data offset="628896" size="1536" shape="1,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="140" name="Conv_80" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="141" name="Clip_83" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="142" name="onnx_initializer_node_774/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="630432" size="98304" shape="64,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>64</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="143" name="Conv_84/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>64</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="144" name="Conv_84/Dims4395/copy_const" type="Const" version="opset1">
+			<data offset="728736" size="256" shape="1,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="145" name="Conv_84" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="146" name="Add_85" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="147" name="onnx_initializer_node_777/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="728992" size="98304" shape="384,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>384</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="148" name="Conv_86/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>384</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="149" name="Conv_86/Dims4383/copy_const" type="Const" version="opset1">
+			<data offset="827296" size="1536" shape="1,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="150" name="Conv_86" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="151" name="Clip_89" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="152" name="1522915232_const" type="Const" version="opset1">
+			<data offset="828832" size="13824" shape="384,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="153" name="Conv_90/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="154" name="Conv_90/Dims4317/copy_const" type="Const" version="opset1">
+			<data offset="842656" size="1536" shape="1,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="155" name="Conv_90" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="156" name="Clip_93" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="157" name="onnx_initializer_node_783/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="844192" size="98304" shape="64,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>64</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="158" name="Conv_94/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>64</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="159" name="Conv_94/Dims4269/copy_const" type="Const" version="opset1">
+			<data offset="942496" size="256" shape="1,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="160" name="Conv_94" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="161" name="Add_95" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="162" name="onnx_initializer_node_786/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="942752" size="98304" shape="384,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>384</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="163" name="Conv_96/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>384</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="164" name="Conv_96/Dims4401/copy_const" type="Const" version="opset1">
+			<data offset="1041056" size="1536" shape="1,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="165" name="Conv_96" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="166" name="Clip_99" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="167" name="1522115224_const" type="Const" version="opset1">
+			<data offset="1042592" size="13824" shape="384,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="168" name="Conv_100/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="169" name="Conv_100/Dims4263/copy_const" type="Const" version="opset1">
+			<data offset="1056416" size="1536" shape="1,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="170" name="Conv_100" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="171" name="Clip_103" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="172" name="onnx_initializer_node_792/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="1057952" size="147456" shape="96,384,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>96</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="173" name="Conv_104/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>384</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>96</dim>
+					<dim>384</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="174" name="Conv_104/Dims4125/copy_const" type="Const" version="opset1">
+			<data offset="1205408" size="384" shape="1,96,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="175" name="Conv_104" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="176" name="onnx_initializer_node_795/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="1205792" size="221184" shape="576,96,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>576</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="177" name="Conv_105/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>576</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="178" name="Conv_105/Dims4305/copy_const" type="Const" version="opset1">
+			<data offset="1426976" size="2304" shape="1,576,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="179" name="Conv_105" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="180" name="Clip_108" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="181" name="1520915212_const" type="Const" version="opset1">
+			<data offset="1429280" size="20736" shape="576,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="182" name="Conv_109/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="183" name="Conv_109/Dims4227/copy_const" type="Const" version="opset1">
+			<data offset="1450016" size="2304" shape="1,576,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="184" name="Conv_109" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="185" name="Clip_112" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="186" name="onnx_initializer_node_801/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="1452320" size="221184" shape="96,576,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>96</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="187" name="Conv_113/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>96</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="188" name="Conv_113/Dims4485/copy_const" type="Const" version="opset1">
+			<data offset="1673504" size="384" shape="1,96,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="189" name="Conv_113" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="190" name="Add_114" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="191" name="onnx_initializer_node_804/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="1673888" size="221184" shape="576,96,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>576</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="192" name="Conv_115/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>576</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="193" name="Conv_115/Dims4431/copy_const" type="Const" version="opset1">
+			<data offset="1895072" size="2304" shape="1,576,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="194" name="Conv_115" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="195" name="Clip_118" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="196" name="1518515188_const" type="Const" version="opset1">
+			<data offset="1897376" size="20736" shape="576,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="197" name="Conv_119/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="198" name="Conv_119/Dims4119/copy_const" type="Const" version="opset1">
+			<data offset="1918112" size="2304" shape="1,576,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="199" name="Conv_119" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="200" name="Clip_122" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="201" name="onnx_initializer_node_810/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="1920416" size="221184" shape="96,576,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>96</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="202" name="Conv_123/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>96</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="203" name="Conv_123/Dims4413/copy_const" type="Const" version="opset1">
+			<data offset="2141600" size="384" shape="1,96,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="204" name="Conv_123" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="205" name="Add_124" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="206" name="Concat_172" type="Concat" version="opset1">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="3">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="4">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="5">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="6">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="7" precision="FP32">
+					<dim>1</dim>
+					<dim>544</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="207" name="DepthToSpace_173" type="DepthToSpace" version="opset1">
+			<data mode="blocks_first" block_size="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>544</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>136</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="208" name="onnx_initializer_node_adaptation_layer.layers.2.0.weight/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="2141984" size="69632" shape="128,136,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>128</dim>
+					<dim>136</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="209" name="Conv_180/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>136</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>128</dim>
+					<dim>136</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="210" name="Conv_180/Dims4143/copy_const" type="Const" version="opset1">
+			<data offset="2211616" size="512" shape="1,128,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="211" name="Conv_180" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="212" name="Relu_181" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="213" name="onnx_initializer_node_813/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="2212128" size="221184" shape="576,96,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>576</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="214" name="Conv_125/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>576</dim>
+					<dim>96</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="215" name="Conv_125/Dims4323/copy_const" type="Const" version="opset1">
+			<data offset="2433312" size="2304" shape="1,576,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="216" name="Conv_125" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="217" name="Clip_128" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="218" name="1524915252_const" type="Const" version="opset1">
+			<data offset="2435616" size="20736" shape="576,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="219" name="Conv_129/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="2,2" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="220" name="Conv_129/Dims4407/copy_const" type="Const" version="opset1">
+			<data offset="2456352" size="2304" shape="1,576,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="221" name="Conv_129" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="222" name="Clip_132" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="223" name="onnx_initializer_node_819/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="2458656" size="368640" shape="160,576,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>160</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="224" name="Conv_133/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>576</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>160</dim>
+					<dim>576</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="225" name="Conv_133/Dims4461/copy_const" type="Const" version="opset1">
+			<data offset="2827296" size="640" shape="1,160,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="226" name="Conv_133" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="227" name="onnx_initializer_node_822/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="2827936" size="614400" shape="960,160,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>960</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="228" name="Conv_134/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>960</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="229" name="Conv_134/Dims4299/copy_const" type="Const" version="opset1">
+			<data offset="3442336" size="3840" shape="1,960,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="230" name="Conv_134" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="231" name="Clip_137" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="232" name="1522515228_const" type="Const" version="opset1">
+			<data offset="3446176" size="34560" shape="960,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="233" name="Conv_138/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="234" name="Conv_138/Dims4287/copy_const" type="Const" version="opset1">
+			<data offset="3480736" size="3840" shape="1,960,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="235" name="Conv_138" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="236" name="Clip_141" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="237" name="onnx_initializer_node_828/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="3484576" size="614400" shape="160,960,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>160</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="238" name="Conv_142/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>160</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="239" name="Conv_142/Dims4311/copy_const" type="Const" version="opset1">
+			<data offset="4098976" size="640" shape="1,160,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="240" name="Conv_142" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="241" name="Add_143" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="242" name="onnx_initializer_node_831/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="4099616" size="614400" shape="960,160,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>960</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="243" name="Conv_144/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>960</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="244" name="Conv_144/Dims4377/copy_const" type="Const" version="opset1">
+			<data offset="4714016" size="3840" shape="1,960,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="245" name="Conv_144" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="246" name="Clip_147" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="247" name="1518915192_const" type="Const" version="opset1">
+			<data offset="4717856" size="34560" shape="960,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="248" name="Conv_148/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="249" name="Conv_148/Dims4137/copy_const" type="Const" version="opset1">
+			<data offset="4752416" size="3840" shape="1,960,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="250" name="Conv_148" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="251" name="Clip_151" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="252" name="onnx_initializer_node_837/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="4756256" size="614400" shape="160,960,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>160</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="253" name="Conv_152/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>160</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="254" name="Conv_152/Dims4281/copy_const" type="Const" version="opset1">
+			<data offset="5370656" size="640" shape="1,160,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="255" name="Conv_152" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="256" name="Add_153" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="257" name="onnx_initializer_node_840/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="5371296" size="614400" shape="960,160,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>960</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="258" name="Conv_154/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>960</dim>
+					<dim>160</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="259" name="Conv_154/Dims4185/copy_const" type="Const" version="opset1">
+			<data offset="5985696" size="3840" shape="1,960,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="260" name="Conv_154" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="261" name="Clip_157" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="262" name="1523315236_const" type="Const" version="opset1">
+			<data offset="5989536" size="34560" shape="960,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="263" name="Conv_158/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="264" name="Conv_158/Dims4341/copy_const" type="Const" version="opset1">
+			<data offset="6024096" size="3840" shape="1,960,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="265" name="Conv_158" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="266" name="Clip_161" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="267" name="onnx_initializer_node_846/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="6027936" size="1228800" shape="320,960,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>320</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="268" name="Conv_162/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>960</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>320</dim>
+					<dim>960</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>320</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="269" name="Conv_162/Dims4515/copy_const" type="Const" version="opset1">
+			<data offset="7256736" size="1280" shape="1,320,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>320</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="270" name="Conv_162" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>320</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>320</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>320</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="271" name="onnx_initializer_node_849/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="7258016" size="1638400" shape="1280,320,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1280</dim>
+					<dim>320</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="272" name="Conv_163/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>320</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1280</dim>
+					<dim>320</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>1280</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="273" name="Conv_163/Dims4419/copy_const" type="Const" version="opset1">
+			<data offset="8896416" size="5120" shape="1,1280,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>1280</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="274" name="Conv_163" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1280</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1280</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>1280</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="275" name="Clip_166" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1280</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>1280</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="276" name="Concat_174" type="Concat" version="opset1">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>160</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="3">
+					<dim>1</dim>
+					<dim>320</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+				<port id="4">
+					<dim>1</dim>
+					<dim>1280</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="5" precision="FP32">
+					<dim>1</dim>
+					<dim>2080</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="277" name="DepthToSpace_175" type="DepthToSpace" version="opset1">
+			<data mode="blocks_first" block_size="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>2080</dim>
+					<dim>6</dim>
+					<dim>8</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>520</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="278" name="onnx_initializer_node_adaptation_layer.layers.3.0.weight/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="8901536" size="1064960" shape="512,520,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>512</dim>
+					<dim>520</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="279" name="Conv_182/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>520</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>512</dim>
+					<dim>520</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="280" name="Conv_182/Dims4449/copy_const" type="Const" version="opset1">
+			<data offset="9966496" size="2048" shape="1,512,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="281" name="Conv_182" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="282" name="Relu_183" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="283" name="onnx_initializer_node_852/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="9968544" size="2097152" shape="1024,512,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1024</dim>
+					<dim>512</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="284" name="Conv_184/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1024</dim>
+					<dim>512</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="285" name="Conv_184/Dims4221/copy_const" type="Const" version="opset1">
+			<data offset="12065696" size="4096" shape="1,1024,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="286" name="Conv_184" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="287" name="Clip_187" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="288" name="1524115244_const" type="Const" version="opset1">
+			<data offset="12069792" size="36864" shape="1024,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1024</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="289" name="Conv_188/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1024</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="290" name="Conv_188/Dims4365/copy_const" type="Const" version="opset1">
+			<data offset="12106656" size="4096" shape="1,1024,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="291" name="Conv_188" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="292" name="Clip_191" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="293" name="onnx_initializer_node_858/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="12110752" size="2097152" shape="512,1024,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>512</dim>
+					<dim>1024</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="294" name="Conv_192/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1024</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>512</dim>
+					<dim>1024</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="295" name="Conv_192/Dims4467/copy_const" type="Const" version="opset1">
+			<data offset="14207904" size="2048" shape="1,512,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="296" name="Conv_192" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="297" name="Add_193" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="298" name="Add_194" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="299" name="DepthToSpace_195" type="DepthToSpace" version="opset1">
+			<data mode="blocks_first" block_size="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>512</dim>
+					<dim>12</dim>
+					<dim>16</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="300" name="Add_196" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="301" name="onnx_initializer_node_861/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="14209952" size="131072" shape="256,128,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>256</dim>
+					<dim>128</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="302" name="Conv_197/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>256</dim>
+					<dim>128</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="303" name="Conv_197/Dims4167/copy_const" type="Const" version="opset1">
+			<data offset="14341024" size="1024" shape="1,256,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="304" name="Conv_197" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="305" name="Clip_200" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="306" name="1521715220_const" type="Const" version="opset1">
+			<data offset="14342048" size="9216" shape="256,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>256</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="307" name="Conv_201/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>256</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="308" name="Conv_201/Dims4257/copy_const" type="Const" version="opset1">
+			<data offset="14351264" size="1024" shape="1,256,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="309" name="Conv_201" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="310" name="Clip_204" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="311" name="onnx_initializer_node_867/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="14352288" size="131072" shape="128,256,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>128</dim>
+					<dim>256</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="312" name="Conv_205/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>256</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>128</dim>
+					<dim>256</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="313" name="Conv_205/Dims4479/copy_const" type="Const" version="opset1">
+			<data offset="14483360" size="512" shape="1,128,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="314" name="Conv_205" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="315" name="Add_206" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="316" name="Add_207" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="317" name="DepthToSpace_208" type="DepthToSpace" version="opset1">
+			<data mode="blocks_first" block_size="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>128</dim>
+					<dim>24</dim>
+					<dim>32</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="318" name="Add_209" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="319" name="onnx_initializer_node_870/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="14483872" size="8192" shape="64,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>64</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="320" name="Conv_210/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>64</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="321" name="Conv_210/Dims4455/copy_const" type="Const" version="opset1">
+			<data offset="14492064" size="256" shape="1,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="322" name="Conv_210" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="323" name="Clip_213" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="324" name="1524515248_const" type="Const" version="opset1">
+			<data offset="14492320" size="2304" shape="64,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="325" name="Conv_214/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="326" name="Conv_214/Dims4389/copy_const" type="Const" version="opset1">
+			<data offset="14494624" size="256" shape="1,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="327" name="Conv_214" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="328" name="Clip_217" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="329" name="onnx_initializer_node_876/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="14494880" size="8192" shape="32,64,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>32</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="330" name="Conv_218/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="331" name="Conv_218/Dims4491/copy_const" type="Const" version="opset1">
+			<data offset="14503072" size="128" shape="1,32,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="332" name="Conv_218" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="333" name="Add_219" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="334" name="Add_220" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="335" name="DepthToSpace_221" type="DepthToSpace" version="opset1">
+			<data mode="blocks_first" block_size="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>48</dim>
+					<dim>64</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="336" name="Add_222" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="337" name="onnx_initializer_node_879/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="14503200" size="512" shape="16,8,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>16</dim>
+					<dim>8</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="338" name="Conv_223/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>16</dim>
+					<dim>8</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="339" name="Conv_223/Dims4245/copy_const" type="Const" version="opset1">
+			<data offset="14503712" size="64" shape="1,16,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="340" name="Conv_223" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="341" name="Clip_226" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="342" name="1520115204_const" type="Const" version="opset1">
+			<data offset="14503776" size="576" shape="16,1,1,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="343" name="Conv_227/WithoutBiases" type="GroupConvolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="344" name="Conv_227/Dims4197/copy_const" type="Const" version="opset1">
+			<data offset="14504352" size="64" shape="1,16,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="345" name="Conv_227" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="346" name="Clip_230" type="Clamp" version="opset1">
+			<data max="6.0" min="0.0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="347" name="onnx_initializer_node_885/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="14504416" size="512" shape="8,16,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>8</dim>
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="348" name="Conv_231/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>8</dim>
+					<dim>16</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="349" name="Conv_231/Dims4191/copy_const" type="Const" version="opset1">
+			<data offset="14504928" size="32" shape="1,8,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="350" name="Conv_231" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="351" name="Add_232" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="352" name="Add_233" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="353" name="DepthToSpace_234" type="DepthToSpace" version="opset1">
+			<data mode="blocks_first" block_size="2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>96</dim>
+					<dim>128</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>2</dim>
+					<dim>192</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="354" name="onnx_initializer_node_comb.layers.0.0.weight/Output_0/Data__const" type="Const" version="opset1">
+			<data offset="14504960" size="72" shape="1,2,3,3" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>2</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="355" name="Conv_235/WithoutBiases" type="Convolution" version="opset1">
+			<data strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1" output_padding="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>2</dim>
+					<dim>192</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>2</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="356" name="Conv_235/Dims4329/copy_const" type="Const" version="opset1">
+			<data offset="14505032" size="4" shape="1,1,1,1" element_type="f32"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="357" name="output" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="358" name="output/sink_port_0" type="Result" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+		</layer>
+	</layers>
+	<edges>
+		<edge from-layer="0" from-port="0" to-layer="2" to-port="0"/>
+		<edge from-layer="1" from-port="1" to-layer="2" to-port="1"/>
+		<edge from-layer="2" from-port="2" to-layer="4" to-port="0"/>
+		<edge from-layer="3" from-port="1" to-layer="4" to-port="1"/>
+		<edge from-layer="4" from-port="2" to-layer="5" to-port="0"/>
+		<edge from-layer="5" from-port="1" to-layer="7" to-port="0"/>
+		<edge from-layer="6" from-port="1" to-layer="7" to-port="1"/>
+		<edge from-layer="7" from-port="2" to-layer="9" to-port="0"/>
+		<edge from-layer="8" from-port="1" to-layer="9" to-port="1"/>
+		<edge from-layer="9" from-port="2" to-layer="10" to-port="0"/>
+		<edge from-layer="10" from-port="1" to-layer="12" to-port="0"/>
+		<edge from-layer="11" from-port="1" to-layer="12" to-port="1"/>
+		<edge from-layer="12" from-port="2" to-layer="14" to-port="0"/>
+		<edge from-layer="13" from-port="1" to-layer="14" to-port="1"/>
+		<edge from-layer="14" from-port="2" to-layer="16" to-port="0"/>
+		<edge from-layer="15" from-port="1" to-layer="16" to-port="1"/>
+		<edge from-layer="16" from-port="2" to-layer="18" to-port="0"/>
+		<edge from-layer="17" from-port="1" to-layer="18" to-port="1"/>
+		<edge from-layer="18" from-port="2" to-layer="19" to-port="0"/>
+		<edge from-layer="19" from-port="1" to-layer="21" to-port="0"/>
+		<edge from-layer="20" from-port="1" to-layer="21" to-port="1"/>
+		<edge from-layer="21" from-port="2" to-layer="23" to-port="0"/>
+		<edge from-layer="22" from-port="1" to-layer="23" to-port="1"/>
+		<edge from-layer="23" from-port="2" to-layer="24" to-port="0"/>
+		<edge from-layer="24" from-port="1" to-layer="26" to-port="0"/>
+		<edge from-layer="25" from-port="1" to-layer="26" to-port="1"/>
+		<edge from-layer="26" from-port="2" to-layer="28" to-port="0"/>
+		<edge from-layer="27" from-port="1" to-layer="28" to-port="1"/>
+		<edge from-layer="28" from-port="2" to-layer="30" to-port="0"/>
+		<edge from-layer="29" from-port="1" to-layer="30" to-port="1"/>
+		<edge from-layer="30" from-port="2" to-layer="32" to-port="0"/>
+		<edge from-layer="31" from-port="1" to-layer="32" to-port="1"/>
+		<edge from-layer="32" from-port="2" to-layer="33" to-port="0"/>
+		<edge from-layer="33" from-port="1" to-layer="35" to-port="0"/>
+		<edge from-layer="34" from-port="1" to-layer="35" to-port="1"/>
+		<edge from-layer="35" from-port="2" to-layer="37" to-port="0"/>
+		<edge from-layer="36" from-port="1" to-layer="37" to-port="1"/>
+		<edge from-layer="37" from-port="2" to-layer="38" to-port="0"/>
+		<edge from-layer="38" from-port="1" to-layer="40" to-port="0"/>
+		<edge from-layer="39" from-port="1" to-layer="40" to-port="1"/>
+		<edge from-layer="40" from-port="2" to-layer="42" to-port="0"/>
+		<edge from-layer="41" from-port="1" to-layer="42" to-port="1"/>
+		<edge from-layer="28" from-port="2" to-layer="43" to-port="0"/>
+		<edge from-layer="42" from-port="2" to-layer="43" to-port="1"/>
+		<edge from-layer="28" from-port="2" to-layer="44" to-port="0"/>
+		<edge from-layer="43" from-port="2" to-layer="44" to-port="1"/>
+		<edge from-layer="44" from-port="2" to-layer="45" to-port="0"/>
+		<edge from-layer="14" from-port="2" to-layer="46" to-port="0"/>
+		<edge from-layer="45" from-port="1" to-layer="46" to-port="1"/>
+		<edge from-layer="46" from-port="2" to-layer="48" to-port="0"/>
+		<edge from-layer="47" from-port="1" to-layer="48" to-port="1"/>
+		<edge from-layer="48" from-port="2" to-layer="50" to-port="0"/>
+		<edge from-layer="49" from-port="1" to-layer="50" to-port="1"/>
+		<edge from-layer="50" from-port="2" to-layer="51" to-port="0"/>
+		<edge from-layer="43" from-port="2" to-layer="53" to-port="0"/>
+		<edge from-layer="52" from-port="1" to-layer="53" to-port="1"/>
+		<edge from-layer="53" from-port="2" to-layer="55" to-port="0"/>
+		<edge from-layer="54" from-port="1" to-layer="55" to-port="1"/>
+		<edge from-layer="55" from-port="2" to-layer="56" to-port="0"/>
+		<edge from-layer="56" from-port="1" to-layer="58" to-port="0"/>
+		<edge from-layer="57" from-port="1" to-layer="58" to-port="1"/>
+		<edge from-layer="58" from-port="2" to-layer="60" to-port="0"/>
+		<edge from-layer="59" from-port="1" to-layer="60" to-port="1"/>
+		<edge from-layer="60" from-port="2" to-layer="61" to-port="0"/>
+		<edge from-layer="61" from-port="1" to-layer="63" to-port="0"/>
+		<edge from-layer="62" from-port="1" to-layer="63" to-port="1"/>
+		<edge from-layer="63" from-port="2" to-layer="65" to-port="0"/>
+		<edge from-layer="64" from-port="1" to-layer="65" to-port="1"/>
+		<edge from-layer="65" from-port="2" to-layer="67" to-port="0"/>
+		<edge from-layer="66" from-port="1" to-layer="67" to-port="1"/>
+		<edge from-layer="67" from-port="2" to-layer="69" to-port="0"/>
+		<edge from-layer="68" from-port="1" to-layer="69" to-port="1"/>
+		<edge from-layer="69" from-port="2" to-layer="70" to-port="0"/>
+		<edge from-layer="70" from-port="1" to-layer="72" to-port="0"/>
+		<edge from-layer="71" from-port="1" to-layer="72" to-port="1"/>
+		<edge from-layer="72" from-port="2" to-layer="74" to-port="0"/>
+		<edge from-layer="73" from-port="1" to-layer="74" to-port="1"/>
+		<edge from-layer="74" from-port="2" to-layer="75" to-port="0"/>
+		<edge from-layer="75" from-port="1" to-layer="77" to-port="0"/>
+		<edge from-layer="76" from-port="1" to-layer="77" to-port="1"/>
+		<edge from-layer="77" from-port="2" to-layer="79" to-port="0"/>
+		<edge from-layer="78" from-port="1" to-layer="79" to-port="1"/>
+		<edge from-layer="65" from-port="2" to-layer="80" to-port="0"/>
+		<edge from-layer="79" from-port="2" to-layer="80" to-port="1"/>
+		<edge from-layer="80" from-port="2" to-layer="82" to-port="0"/>
+		<edge from-layer="81" from-port="1" to-layer="82" to-port="1"/>
+		<edge from-layer="82" from-port="2" to-layer="84" to-port="0"/>
+		<edge from-layer="83" from-port="1" to-layer="84" to-port="1"/>
+		<edge from-layer="84" from-port="2" to-layer="85" to-port="0"/>
+		<edge from-layer="85" from-port="1" to-layer="87" to-port="0"/>
+		<edge from-layer="86" from-port="1" to-layer="87" to-port="1"/>
+		<edge from-layer="87" from-port="2" to-layer="89" to-port="0"/>
+		<edge from-layer="88" from-port="1" to-layer="89" to-port="1"/>
+		<edge from-layer="89" from-port="2" to-layer="90" to-port="0"/>
+		<edge from-layer="90" from-port="1" to-layer="92" to-port="0"/>
+		<edge from-layer="91" from-port="1" to-layer="92" to-port="1"/>
+		<edge from-layer="92" from-port="2" to-layer="94" to-port="0"/>
+		<edge from-layer="93" from-port="1" to-layer="94" to-port="1"/>
+		<edge from-layer="80" from-port="2" to-layer="95" to-port="0"/>
+		<edge from-layer="94" from-port="2" to-layer="95" to-port="1"/>
+		<edge from-layer="65" from-port="2" to-layer="96" to-port="0"/>
+		<edge from-layer="80" from-port="2" to-layer="96" to-port="1"/>
+		<edge from-layer="95" from-port="2" to-layer="96" to-port="2"/>
+		<edge from-layer="96" from-port="3" to-layer="97" to-port="0"/>
+		<edge from-layer="97" from-port="1" to-layer="99" to-port="0"/>
+		<edge from-layer="98" from-port="1" to-layer="99" to-port="1"/>
+		<edge from-layer="99" from-port="2" to-layer="101" to-port="0"/>
+		<edge from-layer="100" from-port="1" to-layer="101" to-port="1"/>
+		<edge from-layer="101" from-port="2" to-layer="102" to-port="0"/>
+		<edge from-layer="95" from-port="2" to-layer="104" to-port="0"/>
+		<edge from-layer="103" from-port="1" to-layer="104" to-port="1"/>
+		<edge from-layer="104" from-port="2" to-layer="106" to-port="0"/>
+		<edge from-layer="105" from-port="1" to-layer="106" to-port="1"/>
+		<edge from-layer="106" from-port="2" to-layer="107" to-port="0"/>
+		<edge from-layer="107" from-port="1" to-layer="109" to-port="0"/>
+		<edge from-layer="108" from-port="1" to-layer="109" to-port="1"/>
+		<edge from-layer="109" from-port="2" to-layer="111" to-port="0"/>
+		<edge from-layer="110" from-port="1" to-layer="111" to-port="1"/>
+		<edge from-layer="111" from-port="2" to-layer="112" to-port="0"/>
+		<edge from-layer="112" from-port="1" to-layer="114" to-port="0"/>
+		<edge from-layer="113" from-port="1" to-layer="114" to-port="1"/>
+		<edge from-layer="114" from-port="2" to-layer="116" to-port="0"/>
+		<edge from-layer="115" from-port="1" to-layer="116" to-port="1"/>
+		<edge from-layer="116" from-port="2" to-layer="118" to-port="0"/>
+		<edge from-layer="117" from-port="1" to-layer="118" to-port="1"/>
+		<edge from-layer="118" from-port="2" to-layer="120" to-port="0"/>
+		<edge from-layer="119" from-port="1" to-layer="120" to-port="1"/>
+		<edge from-layer="120" from-port="2" to-layer="121" to-port="0"/>
+		<edge from-layer="121" from-port="1" to-layer="123" to-port="0"/>
+		<edge from-layer="122" from-port="1" to-layer="123" to-port="1"/>
+		<edge from-layer="123" from-port="2" to-layer="125" to-port="0"/>
+		<edge from-layer="124" from-port="1" to-layer="125" to-port="1"/>
+		<edge from-layer="125" from-port="2" to-layer="126" to-port="0"/>
+		<edge from-layer="126" from-port="1" to-layer="128" to-port="0"/>
+		<edge from-layer="127" from-port="1" to-layer="128" to-port="1"/>
+		<edge from-layer="128" from-port="2" to-layer="130" to-port="0"/>
+		<edge from-layer="129" from-port="1" to-layer="130" to-port="1"/>
+		<edge from-layer="116" from-port="2" to-layer="131" to-port="0"/>
+		<edge from-layer="130" from-port="2" to-layer="131" to-port="1"/>
+		<edge from-layer="131" from-port="2" to-layer="133" to-port="0"/>
+		<edge from-layer="132" from-port="1" to-layer="133" to-port="1"/>
+		<edge from-layer="133" from-port="2" to-layer="135" to-port="0"/>
+		<edge from-layer="134" from-port="1" to-layer="135" to-port="1"/>
+		<edge from-layer="135" from-port="2" to-layer="136" to-port="0"/>
+		<edge from-layer="136" from-port="1" to-layer="138" to-port="0"/>
+		<edge from-layer="137" from-port="1" to-layer="138" to-port="1"/>
+		<edge from-layer="138" from-port="2" to-layer="140" to-port="0"/>
+		<edge from-layer="139" from-port="1" to-layer="140" to-port="1"/>
+		<edge from-layer="140" from-port="2" to-layer="141" to-port="0"/>
+		<edge from-layer="141" from-port="1" to-layer="143" to-port="0"/>
+		<edge from-layer="142" from-port="1" to-layer="143" to-port="1"/>
+		<edge from-layer="143" from-port="2" to-layer="145" to-port="0"/>
+		<edge from-layer="144" from-port="1" to-layer="145" to-port="1"/>
+		<edge from-layer="131" from-port="2" to-layer="146" to-port="0"/>
+		<edge from-layer="145" from-port="2" to-layer="146" to-port="1"/>
+		<edge from-layer="146" from-port="2" to-layer="148" to-port="0"/>
+		<edge from-layer="147" from-port="1" to-layer="148" to-port="1"/>
+		<edge from-layer="148" from-port="2" to-layer="150" to-port="0"/>
+		<edge from-layer="149" from-port="1" to-layer="150" to-port="1"/>
+		<edge from-layer="150" from-port="2" to-layer="151" to-port="0"/>
+		<edge from-layer="151" from-port="1" to-layer="153" to-port="0"/>
+		<edge from-layer="152" from-port="1" to-layer="153" to-port="1"/>
+		<edge from-layer="153" from-port="2" to-layer="155" to-port="0"/>
+		<edge from-layer="154" from-port="1" to-layer="155" to-port="1"/>
+		<edge from-layer="155" from-port="2" to-layer="156" to-port="0"/>
+		<edge from-layer="156" from-port="1" to-layer="158" to-port="0"/>
+		<edge from-layer="157" from-port="1" to-layer="158" to-port="1"/>
+		<edge from-layer="158" from-port="2" to-layer="160" to-port="0"/>
+		<edge from-layer="159" from-port="1" to-layer="160" to-port="1"/>
+		<edge from-layer="146" from-port="2" to-layer="161" to-port="0"/>
+		<edge from-layer="160" from-port="2" to-layer="161" to-port="1"/>
+		<edge from-layer="161" from-port="2" to-layer="163" to-port="0"/>
+		<edge from-layer="162" from-port="1" to-layer="163" to-port="1"/>
+		<edge from-layer="163" from-port="2" to-layer="165" to-port="0"/>
+		<edge from-layer="164" from-port="1" to-layer="165" to-port="1"/>
+		<edge from-layer="165" from-port="2" to-layer="166" to-port="0"/>
+		<edge from-layer="166" from-port="1" to-layer="168" to-port="0"/>
+		<edge from-layer="167" from-port="1" to-layer="168" to-port="1"/>
+		<edge from-layer="168" from-port="2" to-layer="170" to-port="0"/>
+		<edge from-layer="169" from-port="1" to-layer="170" to-port="1"/>
+		<edge from-layer="170" from-port="2" to-layer="171" to-port="0"/>
+		<edge from-layer="171" from-port="1" to-layer="173" to-port="0"/>
+		<edge from-layer="172" from-port="1" to-layer="173" to-port="1"/>
+		<edge from-layer="173" from-port="2" to-layer="175" to-port="0"/>
+		<edge from-layer="174" from-port="1" to-layer="175" to-port="1"/>
+		<edge from-layer="175" from-port="2" to-layer="177" to-port="0"/>
+		<edge from-layer="176" from-port="1" to-layer="177" to-port="1"/>
+		<edge from-layer="177" from-port="2" to-layer="179" to-port="0"/>
+		<edge from-layer="178" from-port="1" to-layer="179" to-port="1"/>
+		<edge from-layer="179" from-port="2" to-layer="180" to-port="0"/>
+		<edge from-layer="180" from-port="1" to-layer="182" to-port="0"/>
+		<edge from-layer="181" from-port="1" to-layer="182" to-port="1"/>
+		<edge from-layer="182" from-port="2" to-layer="184" to-port="0"/>
+		<edge from-layer="183" from-port="1" to-layer="184" to-port="1"/>
+		<edge from-layer="184" from-port="2" to-layer="185" to-port="0"/>
+		<edge from-layer="185" from-port="1" to-layer="187" to-port="0"/>
+		<edge from-layer="186" from-port="1" to-layer="187" to-port="1"/>
+		<edge from-layer="187" from-port="2" to-layer="189" to-port="0"/>
+		<edge from-layer="188" from-port="1" to-layer="189" to-port="1"/>
+		<edge from-layer="175" from-port="2" to-layer="190" to-port="0"/>
+		<edge from-layer="189" from-port="2" to-layer="190" to-port="1"/>
+		<edge from-layer="190" from-port="2" to-layer="192" to-port="0"/>
+		<edge from-layer="191" from-port="1" to-layer="192" to-port="1"/>
+		<edge from-layer="192" from-port="2" to-layer="194" to-port="0"/>
+		<edge from-layer="193" from-port="1" to-layer="194" to-port="1"/>
+		<edge from-layer="194" from-port="2" to-layer="195" to-port="0"/>
+		<edge from-layer="195" from-port="1" to-layer="197" to-port="0"/>
+		<edge from-layer="196" from-port="1" to-layer="197" to-port="1"/>
+		<edge from-layer="197" from-port="2" to-layer="199" to-port="0"/>
+		<edge from-layer="198" from-port="1" to-layer="199" to-port="1"/>
+		<edge from-layer="199" from-port="2" to-layer="200" to-port="0"/>
+		<edge from-layer="200" from-port="1" to-layer="202" to-port="0"/>
+		<edge from-layer="201" from-port="1" to-layer="202" to-port="1"/>
+		<edge from-layer="202" from-port="2" to-layer="204" to-port="0"/>
+		<edge from-layer="203" from-port="1" to-layer="204" to-port="1"/>
+		<edge from-layer="190" from-port="2" to-layer="205" to-port="0"/>
+		<edge from-layer="204" from-port="2" to-layer="205" to-port="1"/>
+		<edge from-layer="116" from-port="2" to-layer="206" to-port="0"/>
+		<edge from-layer="131" from-port="2" to-layer="206" to-port="1"/>
+		<edge from-layer="146" from-port="2" to-layer="206" to-port="2"/>
+		<edge from-layer="161" from-port="2" to-layer="206" to-port="3"/>
+		<edge from-layer="175" from-port="2" to-layer="206" to-port="4"/>
+		<edge from-layer="190" from-port="2" to-layer="206" to-port="5"/>
+		<edge from-layer="205" from-port="2" to-layer="206" to-port="6"/>
+		<edge from-layer="206" from-port="7" to-layer="207" to-port="0"/>
+		<edge from-layer="207" from-port="1" to-layer="209" to-port="0"/>
+		<edge from-layer="208" from-port="1" to-layer="209" to-port="1"/>
+		<edge from-layer="209" from-port="2" to-layer="211" to-port="0"/>
+		<edge from-layer="210" from-port="1" to-layer="211" to-port="1"/>
+		<edge from-layer="211" from-port="2" to-layer="212" to-port="0"/>
+		<edge from-layer="205" from-port="2" to-layer="214" to-port="0"/>
+		<edge from-layer="213" from-port="1" to-layer="214" to-port="1"/>
+		<edge from-layer="214" from-port="2" to-layer="216" to-port="0"/>
+		<edge from-layer="215" from-port="1" to-layer="216" to-port="1"/>
+		<edge from-layer="216" from-port="2" to-layer="217" to-port="0"/>
+		<edge from-layer="217" from-port="1" to-layer="219" to-port="0"/>
+		<edge from-layer="218" from-port="1" to-layer="219" to-port="1"/>
+		<edge from-layer="219" from-port="2" to-layer="221" to-port="0"/>
+		<edge from-layer="220" from-port="1" to-layer="221" to-port="1"/>
+		<edge from-layer="221" from-port="2" to-layer="222" to-port="0"/>
+		<edge from-layer="222" from-port="1" to-layer="224" to-port="0"/>
+		<edge from-layer="223" from-port="1" to-layer="224" to-port="1"/>
+		<edge from-layer="224" from-port="2" to-layer="226" to-port="0"/>
+		<edge from-layer="225" from-port="1" to-layer="226" to-port="1"/>
+		<edge from-layer="226" from-port="2" to-layer="228" to-port="0"/>
+		<edge from-layer="227" from-port="1" to-layer="228" to-port="1"/>
+		<edge from-layer="228" from-port="2" to-layer="230" to-port="0"/>
+		<edge from-layer="229" from-port="1" to-layer="230" to-port="1"/>
+		<edge from-layer="230" from-port="2" to-layer="231" to-port="0"/>
+		<edge from-layer="231" from-port="1" to-layer="233" to-port="0"/>
+		<edge from-layer="232" from-port="1" to-layer="233" to-port="1"/>
+		<edge from-layer="233" from-port="2" to-layer="235" to-port="0"/>
+		<edge from-layer="234" from-port="1" to-layer="235" to-port="1"/>
+		<edge from-layer="235" from-port="2" to-layer="236" to-port="0"/>
+		<edge from-layer="236" from-port="1" to-layer="238" to-port="0"/>
+		<edge from-layer="237" from-port="1" to-layer="238" to-port="1"/>
+		<edge from-layer="238" from-port="2" to-layer="240" to-port="0"/>
+		<edge from-layer="239" from-port="1" to-layer="240" to-port="1"/>
+		<edge from-layer="226" from-port="2" to-layer="241" to-port="0"/>
+		<edge from-layer="240" from-port="2" to-layer="241" to-port="1"/>
+		<edge from-layer="241" from-port="2" to-layer="243" to-port="0"/>
+		<edge from-layer="242" from-port="1" to-layer="243" to-port="1"/>
+		<edge from-layer="243" from-port="2" to-layer="245" to-port="0"/>
+		<edge from-layer="244" from-port="1" to-layer="245" to-port="1"/>
+		<edge from-layer="245" from-port="2" to-layer="246" to-port="0"/>
+		<edge from-layer="246" from-port="1" to-layer="248" to-port="0"/>
+		<edge from-layer="247" from-port="1" to-layer="248" to-port="1"/>
+		<edge from-layer="248" from-port="2" to-layer="250" to-port="0"/>
+		<edge from-layer="249" from-port="1" to-layer="250" to-port="1"/>
+		<edge from-layer="250" from-port="2" to-layer="251" to-port="0"/>
+		<edge from-layer="251" from-port="1" to-layer="253" to-port="0"/>
+		<edge from-layer="252" from-port="1" to-layer="253" to-port="1"/>
+		<edge from-layer="253" from-port="2" to-layer="255" to-port="0"/>
+		<edge from-layer="254" from-port="1" to-layer="255" to-port="1"/>
+		<edge from-layer="241" from-port="2" to-layer="256" to-port="0"/>
+		<edge from-layer="255" from-port="2" to-layer="256" to-port="1"/>
+		<edge from-layer="256" from-port="2" to-layer="258" to-port="0"/>
+		<edge from-layer="257" from-port="1" to-layer="258" to-port="1"/>
+		<edge from-layer="258" from-port="2" to-layer="260" to-port="0"/>
+		<edge from-layer="259" from-port="1" to-layer="260" to-port="1"/>
+		<edge from-layer="260" from-port="2" to-layer="261" to-port="0"/>
+		<edge from-layer="261" from-port="1" to-layer="263" to-port="0"/>
+		<edge from-layer="262" from-port="1" to-layer="263" to-port="1"/>
+		<edge from-layer="263" from-port="2" to-layer="265" to-port="0"/>
+		<edge from-layer="264" from-port="1" to-layer="265" to-port="1"/>
+		<edge from-layer="265" from-port="2" to-layer="266" to-port="0"/>
+		<edge from-layer="266" from-port="1" to-layer="268" to-port="0"/>
+		<edge from-layer="267" from-port="1" to-layer="268" to-port="1"/>
+		<edge from-layer="268" from-port="2" to-layer="270" to-port="0"/>
+		<edge from-layer="269" from-port="1" to-layer="270" to-port="1"/>
+		<edge from-layer="270" from-port="2" to-layer="272" to-port="0"/>
+		<edge from-layer="271" from-port="1" to-layer="272" to-port="1"/>
+		<edge from-layer="272" from-port="2" to-layer="274" to-port="0"/>
+		<edge from-layer="273" from-port="1" to-layer="274" to-port="1"/>
+		<edge from-layer="274" from-port="2" to-layer="275" to-port="0"/>
+		<edge from-layer="226" from-port="2" to-layer="276" to-port="0"/>
+		<edge from-layer="241" from-port="2" to-layer="276" to-port="1"/>
+		<edge from-layer="256" from-port="2" to-layer="276" to-port="2"/>
+		<edge from-layer="270" from-port="2" to-layer="276" to-port="3"/>
+		<edge from-layer="275" from-port="1" to-layer="276" to-port="4"/>
+		<edge from-layer="276" from-port="5" to-layer="277" to-port="0"/>
+		<edge from-layer="277" from-port="1" to-layer="279" to-port="0"/>
+		<edge from-layer="278" from-port="1" to-layer="279" to-port="1"/>
+		<edge from-layer="279" from-port="2" to-layer="281" to-port="0"/>
+		<edge from-layer="280" from-port="1" to-layer="281" to-port="1"/>
+		<edge from-layer="281" from-port="2" to-layer="282" to-port="0"/>
+		<edge from-layer="282" from-port="1" to-layer="284" to-port="0"/>
+		<edge from-layer="283" from-port="1" to-layer="284" to-port="1"/>
+		<edge from-layer="284" from-port="2" to-layer="286" to-port="0"/>
+		<edge from-layer="285" from-port="1" to-layer="286" to-port="1"/>
+		<edge from-layer="286" from-port="2" to-layer="287" to-port="0"/>
+		<edge from-layer="287" from-port="1" to-layer="289" to-port="0"/>
+		<edge from-layer="288" from-port="1" to-layer="289" to-port="1"/>
+		<edge from-layer="289" from-port="2" to-layer="291" to-port="0"/>
+		<edge from-layer="290" from-port="1" to-layer="291" to-port="1"/>
+		<edge from-layer="291" from-port="2" to-layer="292" to-port="0"/>
+		<edge from-layer="292" from-port="1" to-layer="294" to-port="0"/>
+		<edge from-layer="293" from-port="1" to-layer="294" to-port="1"/>
+		<edge from-layer="294" from-port="2" to-layer="296" to-port="0"/>
+		<edge from-layer="295" from-port="1" to-layer="296" to-port="1"/>
+		<edge from-layer="282" from-port="1" to-layer="297" to-port="0"/>
+		<edge from-layer="296" from-port="2" to-layer="297" to-port="1"/>
+		<edge from-layer="282" from-port="1" to-layer="298" to-port="0"/>
+		<edge from-layer="297" from-port="2" to-layer="298" to-port="1"/>
+		<edge from-layer="298" from-port="2" to-layer="299" to-port="0"/>
+		<edge from-layer="212" from-port="1" to-layer="300" to-port="0"/>
+		<edge from-layer="299" from-port="1" to-layer="300" to-port="1"/>
+		<edge from-layer="300" from-port="2" to-layer="302" to-port="0"/>
+		<edge from-layer="301" from-port="1" to-layer="302" to-port="1"/>
+		<edge from-layer="302" from-port="2" to-layer="304" to-port="0"/>
+		<edge from-layer="303" from-port="1" to-layer="304" to-port="1"/>
+		<edge from-layer="304" from-port="2" to-layer="305" to-port="0"/>
+		<edge from-layer="305" from-port="1" to-layer="307" to-port="0"/>
+		<edge from-layer="306" from-port="1" to-layer="307" to-port="1"/>
+		<edge from-layer="307" from-port="2" to-layer="309" to-port="0"/>
+		<edge from-layer="308" from-port="1" to-layer="309" to-port="1"/>
+		<edge from-layer="309" from-port="2" to-layer="310" to-port="0"/>
+		<edge from-layer="310" from-port="1" to-layer="312" to-port="0"/>
+		<edge from-layer="311" from-port="1" to-layer="312" to-port="1"/>
+		<edge from-layer="312" from-port="2" to-layer="314" to-port="0"/>
+		<edge from-layer="313" from-port="1" to-layer="314" to-port="1"/>
+		<edge from-layer="300" from-port="2" to-layer="315" to-port="0"/>
+		<edge from-layer="314" from-port="2" to-layer="315" to-port="1"/>
+		<edge from-layer="300" from-port="2" to-layer="316" to-port="0"/>
+		<edge from-layer="315" from-port="2" to-layer="316" to-port="1"/>
+		<edge from-layer="316" from-port="2" to-layer="317" to-port="0"/>
+		<edge from-layer="102" from-port="1" to-layer="318" to-port="0"/>
+		<edge from-layer="317" from-port="1" to-layer="318" to-port="1"/>
+		<edge from-layer="318" from-port="2" to-layer="320" to-port="0"/>
+		<edge from-layer="319" from-port="1" to-layer="320" to-port="1"/>
+		<edge from-layer="320" from-port="2" to-layer="322" to-port="0"/>
+		<edge from-layer="321" from-port="1" to-layer="322" to-port="1"/>
+		<edge from-layer="322" from-port="2" to-layer="323" to-port="0"/>
+		<edge from-layer="323" from-port="1" to-layer="325" to-port="0"/>
+		<edge from-layer="324" from-port="1" to-layer="325" to-port="1"/>
+		<edge from-layer="325" from-port="2" to-layer="327" to-port="0"/>
+		<edge from-layer="326" from-port="1" to-layer="327" to-port="1"/>
+		<edge from-layer="327" from-port="2" to-layer="328" to-port="0"/>
+		<edge from-layer="328" from-port="1" to-layer="330" to-port="0"/>
+		<edge from-layer="329" from-port="1" to-layer="330" to-port="1"/>
+		<edge from-layer="330" from-port="2" to-layer="332" to-port="0"/>
+		<edge from-layer="331" from-port="1" to-layer="332" to-port="1"/>
+		<edge from-layer="318" from-port="2" to-layer="333" to-port="0"/>
+		<edge from-layer="332" from-port="2" to-layer="333" to-port="1"/>
+		<edge from-layer="318" from-port="2" to-layer="334" to-port="0"/>
+		<edge from-layer="333" from-port="2" to-layer="334" to-port="1"/>
+		<edge from-layer="334" from-port="2" to-layer="335" to-port="0"/>
+		<edge from-layer="51" from-port="1" to-layer="336" to-port="0"/>
+		<edge from-layer="335" from-port="1" to-layer="336" to-port="1"/>
+		<edge from-layer="336" from-port="2" to-layer="338" to-port="0"/>
+		<edge from-layer="337" from-port="1" to-layer="338" to-port="1"/>
+		<edge from-layer="338" from-port="2" to-layer="340" to-port="0"/>
+		<edge from-layer="339" from-port="1" to-layer="340" to-port="1"/>
+		<edge from-layer="340" from-port="2" to-layer="341" to-port="0"/>
+		<edge from-layer="341" from-port="1" to-layer="343" to-port="0"/>
+		<edge from-layer="342" from-port="1" to-layer="343" to-port="1"/>
+		<edge from-layer="343" from-port="2" to-layer="345" to-port="0"/>
+		<edge from-layer="344" from-port="1" to-layer="345" to-port="1"/>
+		<edge from-layer="345" from-port="2" to-layer="346" to-port="0"/>
+		<edge from-layer="346" from-port="1" to-layer="348" to-port="0"/>
+		<edge from-layer="347" from-port="1" to-layer="348" to-port="1"/>
+		<edge from-layer="348" from-port="2" to-layer="350" to-port="0"/>
+		<edge from-layer="349" from-port="1" to-layer="350" to-port="1"/>
+		<edge from-layer="336" from-port="2" to-layer="351" to-port="0"/>
+		<edge from-layer="350" from-port="2" to-layer="351" to-port="1"/>
+		<edge from-layer="336" from-port="2" to-layer="352" to-port="0"/>
+		<edge from-layer="351" from-port="2" to-layer="352" to-port="1"/>
+		<edge from-layer="352" from-port="2" to-layer="353" to-port="0"/>
+		<edge from-layer="353" from-port="1" to-layer="355" to-port="0"/>
+		<edge from-layer="354" from-port="1" to-layer="355" to-port="1"/>
+		<edge from-layer="355" from-port="2" to-layer="357" to-port="0"/>
+		<edge from-layer="356" from-port="1" to-layer="357" to-port="1"/>
+		<edge from-layer="357" from-port="2" to-layer="358" to-port="0"/>
+	</edges>
+	<meta_data>
+		<MO_version value="2021.1.0-1237-bece22ac675-releases/2021/1"/>
+		<cli_parameters>
+			<caffe_parser_path value="DIR"/>
+			<data_type value="float"/>
+			<disable_nhwc_to_nchw value="False"/>
+			<disable_omitting_optional value="False"/>
+			<disable_resnet_optimization value="False"/>
+			<disable_weights_compression value="False"/>
+			<enable_concat_optimization value="False"/>
+			<enable_flattening_nested_params value="False"/>
+			<enable_ssd_gluoncv value="False"/>
+			<extensions value="DIR"/>
+			<framework value="onnx"/>
+			<freeze_placeholder_with_value value="{}"/>
+			<generate_deprecated_IR_V7 value="False"/>
+			<input_model value="DIR/fastsal.onnx"/>
+			<input_model_is_text value="False"/>
+			<k value="DIR/CustomLayersMapping.xml"/>
+			<keep_shape_ops value="True"/>
+			<legacy_mxnet_model value="False"/>
+			<log_level value="ERROR"/>
+			<mean_scale_values value="{}"/>
+			<mean_values value="()"/>
+			<model_name value="fastsal"/>
+			<output_dir value="DIR"/>
+			<placeholder_data_types value="{}"/>
+			<progress value="False"/>
+			<remove_memory value="False"/>
+			<remove_output_softmax value="False"/>
+			<reverse_input_channels value="False"/>
+			<save_params_from_nd value="False"/>
+			<scale_values value="()"/>
+			<silent value="False"/>
+			<static_shape value="False"/>
+			<stream_output value="False"/>
+			<unset unset_cli_parameters="batch, counts, disable_fusing, disable_gfusing, finegrain_fusing, input, input_checkpoint, input_meta_graph, input_proto, input_shape, input_symbol, mean_file, mean_file_offsets, move_to_preprocess, nd_prefix_name, output, placeholder_shapes, pretrained_model_name, saved_model_dir, saved_model_tags, scale, tensorboard_logdir, tensorflow_custom_layer_libraries, tensorflow_custom_operations_config_update, tensorflow_object_detection_api_pipeline_config, tensorflow_use_custom_operations_config, transformations_config"/>
+		</cli_parameters>
+	</meta_data>
+</net>
