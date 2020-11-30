@@ -2,8 +2,8 @@ import cv2 as cv
 import imutils
 import time
 import numpy as np
-model_face_bin = 'cocoA/fastsalCocoA.bin'
-model_face_xml = 'cocoA/fastsalCocoA.xml'
+model_face_bin = 'fastsal_cocoA.bin'
+model_face_xml = 'fastsal_cocoA.xml'
 
 net = cv.dnn.readNet(model_face_xml,model_face_bin)
 net.setPreferableTarget(cv.dnn.DNN_TARGET_MYRIAD)
